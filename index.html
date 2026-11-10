@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="tr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#080c14"><title>So2 Head Studio PRO</title>
+<style>
+:root{--cyan:#55e6ff;--blue:#4b7dff;--bg:#080c14;--muted:#8290a8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg) url('nebula-texture.png') center/cover fixed;color:#f4f7ff;font-family:Inter,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(160deg,#07101de8,#080c14f5 60%,#0b1422ed);pointer-events:none}
+.app{position:relative;max-width:480px;margin:auto;padding:22px 19px 30px}
+.header{display:flex;align-items:center;justify-content:space-between;margin:8px 0 30px}
+.brand{font-weight:950;letter-spacing:1.8px;font-size:16px}.brand b{color:var(--cyan)}
+.pro{border:1px solid #3a7180;color:var(--cyan);padding:7px 11px;border-radius:30px;font-size:10px;letter-spacing:2px}
+.kicker{font-size:10px;color:var(--cyan);letter-spacing:3px;font-weight:800}
+h1{font-size:31px;line-height:1.05;margin:9px 0}.desc{font-size:13px;color:#98a7bd;line-height:1.5;margin:0 0 22px}
+.card{background:linear-gradient(145deg,#17243aee,#0d1524f2);border:1px solid #2b3b56;border-radius:25px;padding:17px;box-shadow:0 20px 60px #0009}
+.preview{height:260px;border-radius:19px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 45%,#254e72 0,#142b45 35%,#0b1526 75%);border:1px solid #38516c}
+.preview:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 65%,#07101b99);pointer-events:none}
+.grid{position:absolute;inset:0;opacity:.14;background-image:linear-gradient(#7adfff33 1px,transparent 1px),linear-gradient(90deg,#7adfff33 1px,transparent 1px);background-size:28px 28px;transform:perspective(240px) rotateX(15deg) scale(1.3)}
+.person{width:140px;height:200px;position:relative;z-index:1;--head:78px;filter:drop-shadow(0 12px 16px #0008)}
+.body{position:absolute;bottom:0;left:12px;width:116px;height:76px;border-radius:55px 55px 12px 12px;background:linear-gradient(130deg,#5a8fba,#203b61);border:1px solid #79b8dc}
+.neck{position:absolute;top:106px;left:54px;width:32px;height:39px;background:linear-gradient(90deg,#a86e52,#e0aa82);border-radius:9px}
+.face{position:absolute;top:29px;left:50%;transform:translateX(-50%);width:var(--head);height:91px;border-radius:47% 47% 43% 43%;background:linear-gradient(115deg,#f1c39d,#bf805f);box-shadow:inset -9px -5px 0 #995f4a55;transition:width .15s}
+.hair{position:absolute;top:23px;left:50%;transform:translateX(-50%);width:var(--head);height:36px;border-radius:50% 50% 18% 18%;background:linear-gradient(120deg,#35313b,#15141b);z-index:2;transition:width .15s}
+.eyes{position:absolute;top:80px;left:50%;transform:translateX(-50%);width:35px;display:flex;justify-content:space-between;z-index:3}.eyes i{width:6px;height:4px;border-radius:5px;background:#211d23}
+.mouth{position:absolute;top:104px;left:50%;transform:translateX(-50%);width:13px;height:3px;border-radius:4px;background:#8e514b;z-index:3}
+.scan{position:absolute;top:17px;left:17px;color:#a8d8eb;font-size:9px;letter-spacing:2px;z-index:4}.preview-foot{position:absolute;bottom:14px;right:15px;color:#a8c4d7;font-size:9px;letter-spacing:2px;z-index:4}
+.control{padding:20px 3px 5px}.line{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700}.val{font-size:17px;color:var(--cyan);font-weight:900;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;margin:20px 0 8px;accent-color:var(--cyan)}.ticks{display:flex;justify-content:space-between;font-size:10px;color:#788aa5}
+.presets{display:flex;gap:8px;margin-top:17px}.preset{flex:1;background:#17263b;border:1px solid #30435f;color:#b7c9dc;padding:10px 4px;border-radius:11px;font-size:11px;font-weight:700}.preset:active{border-color:var(--cyan);color:var(--cyan)}
+.start{width:100%;margin-top:22px;padding:18px;border:0;border-radius:15px;background:linear-gradient(100deg,#45d9f5,#628bff);color:#07101c;font-size:15px;font-weight:950;letter-spacing:3px;box-shadow:0 8px 30px #45cfff3d}
+.info{display:flex;gap:10px;margin-top:15px;color:#8294ae;font-size:10px;line-height:1.5}.dot{width:7px;height:7px;border-radius:50%;background:#53dfae;margin-top:4px;flex:none}
+.footer{text-align:center;color:#53647e;font-size:9px;letter-spacing:1.5px;margin:20px 0 0}
+</style></head><body><main class="app">
+<header class="header"><div class="brand">SO2 <b>HEAD STUDIO</b></div><div class="pro">PRO EDITION</div></header>
+<div class="kicker">PLAYER CUSTOMIZATION LAB</div><h1>Head Size<br>Studio</h1>
+<p class="desc">Karakter önizlemeni kişiselleştir. Boyut ayarını değiştir ve canlı görünümü incele.</p>
+<section class="card">
+<div class="preview"><div class="grid"></div><div class="scan">LIVE MODEL / PREVIEW</div>
+<div class="person" id="person"><div class="body"></div><div class="neck"></div><div class="face"></div><div class="hair"></div><div class="eyes"><i></i><i></i></div><div class="mouth"></div></div>
+<div class="preview-foot">3D-STYLE PREVIEW</div></div>
+<div class="control"><div class="line"><span>HEAD SCALE</span><span class="val" id="readout">100%</span></div>
+<input id="scale" type="range" min="70" max="160" value="100" step="1"><div class="ticks"><span>70%</span><span>115%</span><span>160%</span></div>
+<div class="presets"><button class="preset" data-v="85">COMPACT</button><button class="preset" data-v="115">BALANCED</button><button class="preset" data-v="150">MAX PREVIEW</button></div>
+</div><button class="start" id="start">START GAME ↗</button>
+<div class="info"><span class="dot"></span><span>START, cihazında yüklüyse Standoff 2'yi açar. Ölçek ayarı yalnızca bu uygulamadaki örnek karakter önizlemesini etkiler; oyunun modellerini veya hitbox değerlerini değiştirmez.</span></div>
+</section><div class="footer">SO2 HEAD STUDIO PRO · COMPANION INTERFACE</div></main>
+<script>
+const slider=document.getElementById('scale'),label=document.getElementById('readout'),person=document.getElementById('person');
+function apply(v){slider.value=v;label.textContent=v+'%';person.style.setProperty('--head',(78*v/100)+'px');}
+slider.addEventListener('input',()=>apply(slider.value));
+document.querySelectorAll('.preset').forEach(b=>b.addEventListener('click',()=>apply(b.dataset.v)));
+document.getElementById('start').addEventListener('click',()=>{if(window.So2Bridge)So2Bridge.launchGame();else alert('START, Android uygulamasında Standoff 2’yi açar.');});
+apply(100);
+</script></body></html>
